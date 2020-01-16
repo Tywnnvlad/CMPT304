@@ -1,0 +1,20 @@
+*{
+    background-color: royalblue;
+    border-style: solid;
+    border-width: 3px;
+    border-color: yellowgreen;
+
+}
+
+img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:900px;
+}
+
+p{
+    display: block;
+    color: yellow;
+    text-align: center;   
+}
