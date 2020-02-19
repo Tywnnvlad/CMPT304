@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Minesweeper</title>
+    <link href="css/main.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Minesweeper</h1>
+    <div id="mainDiv">
+        <div id="boardDiv">
+            <table id="boardTable"></table>
+        </div>
+        
+        <div id="controlDiv">
+            <button id="start" onclick="makeTable();">Start</button>
+            <div id="infoDiv">
+                <form>
+                    <label for="boardSize">Enter Size:</label>
+                    <br>
+                    <input type="text" id="boardText" size ="5" value="5">
+                    <br>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js" type="text/javascript"></script>
+</body>
+
+</html>
