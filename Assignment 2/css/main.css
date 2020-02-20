@@ -22,17 +22,18 @@ td {
 }
 
 td:hover{
-    background-color: khaki;
+    background-color: darkgray;
 }
-
-/* #tableCell:hover{
-    background-color: khaki;
-} */
 
 .clicked{
     background-color: lawngreen;
 }
-
+.mine{
+    background-color: crimson;
+}
+.mine:hover{
+    background-color: red;
+}
 #boardTable{
     display: flex;
     flex-direction: column;

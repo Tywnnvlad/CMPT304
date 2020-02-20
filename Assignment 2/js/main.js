@@ -9,9 +9,9 @@ function  makeTable(){
         var row = table.insertRow(y);
         for(var x = 0; x < sizeOfBoard; x++){
             var cell = row.insertCell(x);
-            cell.onclick = function(){
-                click(this);
-            };
+            cell.addEventListener("click",(e)=>{
+                click(e.target);
+            });
             //Set the coordinates of each tile
             cell.setAttribute("id","cell"+x+""+y,0);
             var mine = document.createAttribute("mineValue");
@@ -43,17 +43,28 @@ function addMine(sizeOfBoard){
     }
 
 }
-
+//Click function
 function click(cell){
-    if(cell.getAttribute("minveValue")=="true"){
-        alert("BOOM");
+    if(cell.getAttribute("mineValue")=="true"){
+        cell.classList.add("mine");
+        revealMine();
     }
+    cell.classList.add("clicked");
 }
+//A function to reveal all the mines if clicked
+function revealMine(){
+    for(y = 0; y < sizeOfBoard; y++){
+        for (x = 0; x < sizeOfBoard; x++){
+           var coords = document.getElementById("cell"+x+""+y);
+           if (coords.getAttribute("mineValue")=="true"){
+               coords.classList.add("mine");
+           }
+        }
+    }
 
-//dunno if I need this
-function tableCell(row,col){
-    this.x=row;
-    this.y=col;
+}
+function checkAround(){
+    
 }
 
 makeTable();
