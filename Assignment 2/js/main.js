@@ -9,14 +9,15 @@ function  makeTable(){
         var row = table.insertRow(y);
         for(var x = 0; x < sizeOfBoard; x++){
             var cell = row.insertCell(x);
-            cell.addEventListener("click",(e)=>{
-                click(e.target);
-            });
+
             //Set the coordinates of each tile
             cell.setAttribute("id","cell"+x+""+y,0);
             var mine = document.createAttribute("mineValue");
             mine.value = false;
             cell.setAttributeNode(mine);
+            cell.addEventListener("click",(e)=>{
+                click(e.target);
+            });
             //cell.setAttribute("class","cell"+x+""+y,0);                   
             cell.innerHTML = x+""+y; 
         }
@@ -49,7 +50,10 @@ function click(cell){
         cell.classList.add("mine");
         revealMine();
     }
+    else{
     cell.classList.add("clicked");
+    checkAround(cell);
+    }
 }
 //A function to reveal all the mines if clicked
 function revealMine(){
@@ -61,10 +65,26 @@ function revealMine(){
            }
         }
     }
-
 }
-function checkAround(){
-    
+//
+function checkAround(cell){
+    var mineCount = 0;
+    var cellRow = cell.parentNode.rowIndex;
+    var cellCol = cell.cellIndex;
+    for (var i=Math.max(cellRow-1,0); i<=Math.min(cellRow+1,9); i++) {
+        for(var j=Math.max(cellCol-1,0); j<=Math.min(cellCol+1,9); j++) {
+          if (table.rows[i].cells[j].getAttribute("mineValue")=="true") mineCount++;
+        }
+      }
+      cell.innerHTML=mineCount;
+
+      if (mineCount==0) { 
+        for (var i=Math.max(cellRow-1,0); i<=Math.min(cellRow+1,9); i++) {
+          for(var j=Math.max(cellCol-1,0); j<=Math.min(cellCol+1,9); j++) {
+            if (grid.rows[i].cells[j].innerHTML=="") clickCell(grid.rows[i].cells[j]);
+          }
+        }
+      }
 }
 
 makeTable();
