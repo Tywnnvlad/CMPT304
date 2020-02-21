@@ -23,7 +23,7 @@ function  makeTable(){
                 click(e.target);
             });
             //cell.setAttribute("class","cell"+x+""+y,0);                   
-            //cell.innerHTML = x+""+y; 
+           // cell.innerHTML = x+""+y; 
         }
     }addMine(sizeOfBoard);
 }
@@ -53,10 +53,12 @@ function click(cell){
     if(cell.getAttribute("mineValue")=="true"){
         cell.classList.add("mine");
         revealMine();
+        alert("GAMEOVER");
     }
     else{
     cell.classList.add("clicked");
     checkAround(cell);
+    checkVictory();
     }
 }
 //A function to reveal the rest of mines if a mine is clicked. 
@@ -89,9 +91,21 @@ function checkAround(cell){
           }
         }
       }
-
 }
-
+function checkVictory(){
+    var victory = true;
+    for (var i = 0; i < sizeOfBoard-1; i++){
+        for( var j = 0; j < sizeOfBoard-1; j++){
+            if((table.rows[i].cells[j].getAttribute("mineValue")=="false")
+            && (table.rows[i].cells[j].getAttribute("class")=="clicked"))
+            victory = false;
+        }
+        if (victory){
+            alert("VICTORY");
+            revealMine();
+        }
+    }
+}
 
 
 makeTable();
