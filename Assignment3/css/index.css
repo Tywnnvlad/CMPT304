@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+}
+
+*{
+    color: white;
+}
+
+#myCanvas{
+    border: white solid 3px;
+    background-color: darkgray;
+}
+
+.hidden{
+    display: none;
+}
+
+/* #pieman{
+    background-image: url('pacman1.png');
+    background-size: 24px 24px;
+} */

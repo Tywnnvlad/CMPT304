@@ -1,0 +1,69 @@
+*{
+    background-color: black;
+    color: whitesmoke;
+}
+
+td {
+    border: 1px solid whitesmoke;
+    height: 40px;
+    width: 40px;
+    background-color: black;
+}
+
+td:hover{
+    background-color: darkgray;
+}
+#table{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+#tableGrid{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+#controlTable{
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+
+#colorTable{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 10px;
+}
+
+#currentColor{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.color0,#color0{ 
+    background-color:crimson;
+}
+.color1,#color1{
+    background-color:green;
+}
+.color2,#color2{
+    background-color: blue;
+}
+.color3,#color3{
+    background-color:yellow;
+}
+.color4,#color4{
+    background-color:brown;
+}
+.color5,#color5{
+    background-color:whitesmoke;
+}
+.color6,#color6{
+    background-color:black;
+}
