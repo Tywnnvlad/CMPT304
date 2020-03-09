@@ -1,22 +1,23 @@
 
+//GLOBAL VARIABLES
+var tableSize = 10;
 var table = document.getElementById('tableGrid');
 var control = document.getElementById('colorTable');
 var curColor = document.getElementById('currentColor');
-var cellColor = document.getElementById('cellColor');
 var color = ["crimson", "green","blue","yellow","brown","white","black"];
-var cellNum;
 
-//Size of the table
-var tableSize = 10;
 
+
+//This function will generate the drawing area
 function generateTable(){
     for(i = 0; i < tableSize; i++){
         var row = table.insertRow(i);
         for(j = 0; j < tableSize; j++){
             var cell = row.insertCell(j);
-            var color = document.createAttribute("colorValue");
-            color.value = "black"
-            cell.setAttributeNode(color);            
+            cell.addEventListener("click",function(event){
+                var colorID = document.getElementById("cell").getAttribute("colorID");
+                event.target.style.background=color[colorID];
+            });         
         }       
     }
 }
@@ -26,40 +27,29 @@ function generateControlTable(){
         var row = control.insertRow(i);
         for(j = 0; j < 7; j++){
         var cell = row.insertCell(j);
-        cell.setAttribute("class","color"+j,0);
-        // cell.addEventListener("click",(e)=>{
-        //     click(e.target);});
-        // cell.addEventListener("click",function(){
-        //     console.log(j + "");
-        //     changeColor(j);
-        // });
-
-        // cell.addEventListener("click",function(){
-        //     click(j);
-        // });
+        cell.setAttribute("colorID",j,0);      
+        cell.style.background=color[j];  
+        cell.addEventListener("click", function(event) {    
+            click(event.target.getAttribute("colorID"));
+            // colorID = document.getElementById("cell").getAttribute("colorID");
+        });
         
         }
-    }
+    } 
 }
 
 function currentColorTable(){
     cell = curColor.insertRow(0).insertCell(0);
-    cell.setAttribute("name","cellColor");
+    cell.setAttribute("colorID","0");
     cell.setAttribute("id","cell");
-    cell.addEventListener("click",(e)=>{
-    click(e.target);});
-    var color = document.createAttribute("colorValue");
-    color.value = "black"
-    cell.setAttributeNode(color); 
+
+    cell.style.background = color[0];
+    
 }
 
- function changeColor(i){
-    cellNum = i;
- }
 function click(i){
-    // if(curColor.getAttribute("colorValue")=="red"){
-    document.getElementById("cell").style.background =color[i];
-    // }
+    document.getElementById("cell").style.background = color[i];
+    document.getElementById("cell").setAttribute("colorID",i);
 }
 
 currentColorTable();

@@ -1,18 +1,19 @@
-body{
-    background-color: black;
+body {
+  background-color: black;
 }
 
-*{
-    color: white;
+* {
+  color: white;
 }
 
-#myCanvas{
-    border: white solid 3px;
-    background-color: darkgray;
+#myCanvas {
+  border: white solid 3px;
+  background-color: darkgray;
+  padding: 0;
 }
 
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
 /* #pieman{
